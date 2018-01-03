@@ -1,0 +1,23 @@
+%header
+  %nav.green.white-text
+    .ul.no-list.no-padding.text-center
+      %li.col-md-4.inline-block.tall-padding.white-text
+        -if user_signed_in?
+          =link_to root_path, class:"right-space white-text" do
+            %i.fa.fa-dashboard
+            Mi tienda
+          =link_to "", class:"right-space white-text" do
+            %i.fa.fa-handshake-o
+            Órdenes
+          =link_to "", class:"right-space white-text" do
+            %i.fa.fa-clock-o
+            Descuentos
+      %li.col-md-4.inline-block.center-text.tall-padding
+        =image_tag "tiendus.png", height:"25px"
+      %li.col-md-4.inline-block.tall-padding
+        =link_to carrito_path, class: "white-text" do
+          %i.fa.fa-shopping-cart
+          Mi carrito
+          (
+          =@shopping_cart.in_shopping_carts.count
+          )

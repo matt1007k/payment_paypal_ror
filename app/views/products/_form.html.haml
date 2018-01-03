@@ -1,0 +1,22 @@
+= form_for @product do |f|
+  - if @product.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
+      %ul
+        - @product.errors.full_messages.each do |message|
+          %li= message
+
+  .field.form-group
+    = f.label :Nombre
+    = f.text_field :name, class:"form-control floating-label"
+  .field.form-group
+    = f.label :Precio
+    = f.text_field :pricing, class:"form-control floating-label"
+  .field.form-group
+    = f.label :Imagen
+    = f.file_field :image, class:"form-control floating-label"
+  .field.form-group
+    = f.label :Descripción
+    = f.text_area :description, class:"form-control floating-label"
+  .actions
+    = f.submit 'Guardar', class:"btn btn-success"

@@ -1,0 +1,9 @@
+%h1 Hola mundo
+
+-if user_signed_in?
+  =link_to "Cerrar Sesion", destroy_user_session_path,method: :delete
+-else
+  %p
+    =link_to "Iniciar Sesión", new_user_session_path
+  %p
+    =link_to "Crear Cuenta", new_user_registration_path
